@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public float rotationSpeed = 6;
     private Animator animator;
     [Header("Life")]
-    private bool isDead;
+    public bool isDead;
     public float maxLife = 100;
     public float currentLife=0;
     public Image fillLifeImage;
@@ -131,6 +131,6 @@ public class Enemy : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, target, 1.5f * Time.deltaTime);
             yield return null;
         }
-        //Destroy(this);
+        Destroy(this);
     }
 }
