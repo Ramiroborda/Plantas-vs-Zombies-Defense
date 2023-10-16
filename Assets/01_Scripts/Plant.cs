@@ -7,12 +7,9 @@ public class Plant : MonoBehaviour
 {
     public string towerName;
     public string towerDescription;
-    public float buyPrice;
-    public float sellPrice;
 
-    public float range;
-    public float dmg = 20;
-    public float timeShoot = 1;
+    public PlantData currentData;
+    
     public Enemy currentTarget;
     public List<Enemy> currentTargets = new List<Enemy>();
     public Transform rotationPart;
@@ -22,11 +19,19 @@ public class Plant : MonoBehaviour
     //public GameObject shootEffect;
     public Bullet bullet;
 
+    [Header("TowerUpgrade")]
+    public List<PlantData> plantUpgradeData = new List<PlantData>();
+    public int currentIndexUpgrade = 0;
+
 
 
     void Start()
     {
         StartCoroutine(ShootTime());
+    }
+    private void OnMouseDown()
+    {
+        TowerUIPanelManager.instance.OpenPanel(this);
     }
 
     void Update()
@@ -36,7 +41,7 @@ public class Plant : MonoBehaviour
     }
     private void EnemyDetection()
     {
-        currentTargets = Physics.OverlapSphere(transform.position, range).Where(currentEnemy => currentEnemy.GetComponent<Enemy>()).Select(currentEnemy => currentEnemy.GetComponent<Enemy>()).Where(currentEnemy => !currentEnemy.isDead).ToList();
+        currentTargets = Physics.OverlapSphere(transform.position, currentData.range).Where(currentEnemy => currentEnemy.GetComponent<Enemy>()).Select(currentEnemy => currentEnemy.GetComponent<Enemy>()).Where(currentEnemy => !currentEnemy.isDead).ToList();
         if (currentTargets.Count > 0 && !currentTargets.Contains(currentTarget))
             currentTarget = currentTargets[0];
         else if (currentTargets.Count == 0)
@@ -60,7 +65,7 @@ public class Plant : MonoBehaviour
                 Shoot();
                 //shootEffect.SetActive(true);
                 //StartCoroutine(DesactiveShootEffect());
-                yield return new WaitForSeconds(timeShoot);
+                yield return new WaitForSeconds(currentData.timeShoot);
             }
             yield return null;
         }
@@ -75,13 +80,13 @@ public class Plant : MonoBehaviour
     {
         //currentTarget.TakeDamage(dmg);
         var bulletGo = Instantiate(bullet, shootPosition.position, shootPosition.rotation);
-        bulletGo.SetBullet(currentTarget, dmg);
+        bulletGo.SetBullet(currentTarget, currentData.dmg);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(transform.position, currentData.range);
     }
 
 

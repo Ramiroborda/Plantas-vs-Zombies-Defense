@@ -8,7 +8,9 @@ public class Node : MonoBehaviour
     public static Node selectedNode;
     private Animator anim;
     private bool isSelected = false;
-    // Start is called before the first frame update
+    public bool isOcuped;
+    public Plant towerOcuped; 
+    
    
     public void Awake()
     {
@@ -16,10 +18,17 @@ public class Node : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (isOcuped)
+        {
+            TowerUIPanelManager.instance.OpenPanel(towerOcuped);
+            return;
+        }
+            
         if (selectedNode && selectedNode != this)
         {
             selectedNode.OnCloseSelection();
         }
+        
         selectedNode = this;
         
         isSelected = !isSelected;
