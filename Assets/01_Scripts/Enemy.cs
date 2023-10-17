@@ -23,6 +23,11 @@ public class Enemy : MonoBehaviour
     [Header("OnDead")]
     public int moneyOnDead = 10;
 
+    public int damage;
+    public GameObject House;
+
+
+
 
 
     public void Awake()
@@ -39,6 +44,7 @@ public class Enemy : MonoBehaviour
         currentLife = maxLife;
         
     }
+    
     public void GetWayPoints()
     {
         waypoints .Clear ();
@@ -85,7 +91,7 @@ public class Enemy : MonoBehaviour
         {
             return;
         }
-        //transform.LookAt(waypoints[targetIndex]);
+        transform.LookAt(waypoints[targetIndex]);
         var dir = waypoints[targetIndex].position - transform.position; 
         var rootTarget = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Slerp(transform.rotation,rootTarget, rotationSpeed * Time.deltaTime);
@@ -137,4 +143,24 @@ public class Enemy : MonoBehaviour
         }
         Destroy(this);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag =="House")
+        {
+            House.GetComponent<LifeHouse>().lifeHouse -= damage;
+        }
+        if (other.tag == "Zombie")
+        {
+            Debug.Log("Esto es un enemigo");
+        }
+        if (other.tag == "ZombieSmall")
+        {
+            Debug.Log("Esto es un enemigo");
+        }
+    }
+
+
+
+
 }

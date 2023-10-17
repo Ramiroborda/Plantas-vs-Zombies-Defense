@@ -23,7 +23,7 @@ public class PlayerDataUI : MonoBehaviour
     }
     public void UpdateMoneyText(string value)
     {
-        moneyTxt.text = "Suns " + value;
+        moneyTxt.text = " " + value;
     }
     // Start is called before the first frame update
     void Start()

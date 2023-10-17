@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     public static PlayerData instance;
-    public int money = 100;
+    public int money = 150;
     private void Awake()
     {
         #region singleton
