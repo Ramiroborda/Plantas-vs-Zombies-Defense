@@ -3,11 +3,13 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Bullet
     - Enemy
+    - LifeHouse
     - MainPanel
     - Node
     - Plant
     - PlayerData
     - PlayerDataUI
+    - ReturnMenu
     - Sounds
     - TowerRequestManager
     - TowerUIPanelManager
@@ -29,8 +31,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -113,6 +117,9 @@ ScriptsOnlyBuild:
     fullTypeName: TowerRequestManager
     methodName: RequestTowerBuy
   - assembly: Assembly-CSharp
+    fullTypeName: ReturnMenu
+    methodName: ChangeScene
+  - assembly: Assembly-CSharp
     fullTypeName: TowerRequestManager
     methodName: RequestTowerBuy
   - assembly: Assembly-CSharp
@@ -127,6 +134,27 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: TowerRequestManager
     methodName: RequestTowerBuy
+  - assembly: Assembly-CSharp
+    fullTypeName: MainPanel
+    methodName: OpenPanel
+  - assembly: Assembly-CSharp
+    fullTypeName: MainPanel
+    methodName: OpenPanel
+  - assembly: Assembly-CSharp
+    fullTypeName: MainPanel
+    methodName: SetMute
+  - assembly: Assembly-CSharp
+    fullTypeName: MainPanel
+    methodName: ExitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: MainPanel
+    methodName: PlayLevel
+  - assembly: Assembly-CSharp
+    fullTypeName: ReturnMenu
+    methodName: ChangeScene
+  - assembly: Assembly-CSharp
+    fullTypeName: MainPanel
+    methodName: PlayLevel
   sceneClasses:
     Assets/00_Scenes/GameOver.unity:
     - Class: 1
@@ -142,6 +170,10 @@ ScriptsOnlyBuild:
     - Class: 48
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
@@ -160,6 +192,12 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 18118}
     - Class: 114
+      Script: {instanceID: 19738}
+    - Class: 114
+      Script: {instanceID: 19936}
+    - Class: 114
+      Script: {instanceID: 19984}
+    - Class: 114
       Script: {instanceID: 20056}
     - Class: 114
       Script: {instanceID: 20748}
@@ -167,6 +205,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 21060}
     - Class: 114
       Script: {instanceID: 21958}
+    - Class: 114
+      Script: {instanceID: 38680}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -182,6 +222,12 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 241
+      Script: {instanceID: 0}
+    - Class: 243
+      Script: {instanceID: 0}
+    - Class: 245
       Script: {instanceID: 0}
     Assets/00_Scenes/MainMenu.unity:
     - Class: 1
@@ -326,6 +372,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 19738}
     - Class: 114
+      Script: {instanceID: 19984}
+    - Class: 114
       Script: {instanceID: 20056}
     - Class: 114
       Script: {instanceID: 20108}
@@ -340,9 +388,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 21848}
     - Class: 114
-      Script: {instanceID: 22596}
+      Script: {instanceID: 21958}
     - Class: 114
-      Script: {instanceID: 22684}
+      Script: {instanceID: 22486}
+    - Class: 114
+      Script: {instanceID: 22598}
+    - Class: 114
+      Script: {instanceID: 22686}
+    - Class: 114
+      Script: {instanceID: 38680}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -362,6 +416,12 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 241
+      Script: {instanceID: 0}
+    - Class: 243
+      Script: {instanceID: 0}
+    - Class: 245
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -600,7 +660,7 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: 9cfdb34aa8c337aff47e01b12d975986
+      Hash: 79096b974952a964e0ca34090681bcd8
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Enemy
@@ -1398,6 +1458,12 @@ ScriptsOnlyBuild:
     className: TMP_ScrollbarEventHandler
   - hash:
       serializedVersion: 2
+      Hash: 1e675fbe000f113735406935e01b9f65
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: LifeHouse
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Assembly-CSharp
     namespaceName: TMPro.Examples
@@ -1462,9 +1528,21 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: DaveClick
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ReturnMenu
   platform: 20
   scenePathNames:
   - Assets/00_Scenes/MainMenu.unity
   - Assets/00_Scenes/SampleScene.unity
   - Assets/00_Scenes/GameOver.unity
-  playerPath: C:/Users/RAMIRO/Desktop/Juego PVZ Finalizado
+  playerPath: C:/Users/RAMIRO/Desktop/PVZ Finalizado

@@ -64,6 +64,7 @@
           {
             "name": "AudioClip",
             "scenes": [
+              "Assets/00_Scenes/GameOver.unity",
               "Assets/00_Scenes/MainMenu.unity",
               "Assets/00_Scenes/SampleScene.unity"
             ],
@@ -89,7 +90,9 @@
           {
             "name": "AudioMixer",
             "scenes": [
-              "Assets/00_Scenes/MainMenu.unity"
+              "Assets/00_Scenes/GameOver.unity",
+              "Assets/00_Scenes/MainMenu.unity",
+              "Assets/00_Scenes/SampleScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -97,7 +100,9 @@
           {
             "name": "AudioMixerGroup",
             "scenes": [
-              "Assets/00_Scenes/MainMenu.unity"
+              "Assets/00_Scenes/GameOver.unity",
+              "Assets/00_Scenes/MainMenu.unity",
+              "Assets/00_Scenes/SampleScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -105,7 +110,9 @@
           {
             "name": "AudioMixerSnapshot",
             "scenes": [
-              "Assets/00_Scenes/MainMenu.unity"
+              "Assets/00_Scenes/GameOver.unity",
+              "Assets/00_Scenes/MainMenu.unity",
+              "Assets/00_Scenes/SampleScene.unity"
             ],
             "dependencyType": 0,
             "icon": null
@@ -113,6 +120,7 @@
           {
             "name": "AudioSource",
             "scenes": [
+              "Assets/00_Scenes/GameOver.unity",
               "Assets/00_Scenes/MainMenu.unity",
               "Assets/00_Scenes/SampleScene.unity"
             ],
@@ -122,6 +130,7 @@
           {
             "name": "SampleClip",
             "scenes": [
+              "Assets/00_Scenes/GameOver.unity",
               "Assets/00_Scenes/MainMenu.unity",
               "Assets/00_Scenes/SampleScene.unity"
             ],
